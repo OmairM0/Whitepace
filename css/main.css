@@ -659,7 +659,6 @@ header .menu .menu-icon {
   align-items: center;
   justify-content: center;
   padding: 30px;
-  overflow: hidden;
 }
 
 .testimonial .boxes .box {
@@ -668,31 +667,29 @@ header .menu .menu-icon {
   min-width: 289px;
   box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
   position: relative;
-  left: 100%;
+  display: block;
 }
-
-.testimonial .boxes .box:first-of-type {
-  animation: slider 15s linear infinite;
-  animation-delay: 1s;
-}
-
-.testimonial .boxes .box:nth-of-type(2) {
-  animation: slider 15s linear infinite;
-  animation-delay: 2s;
-}
-
-.testimonial .boxes .box:last-of-type {
-  animation: slider 15s linear infinite;
-  animation-delay: 3s;
-}
-
-/* .testimonial .boxes:hover .box {
-  animation-play-state: running;
-} */
 
 .testimonial .boxes .box.blue {
   background-color: var(--color-blueberry);
   color: var(--color-white);
+}
+
+@media (max-width: 1151px) {
+  .testimonial .boxes .box {
+    /* grid-column: span 12; */
+    display: none;
+  }
+}
+
+.testimonial .boxes .slider-nav {
+  display: none;
+}
+
+@media (max-width: 1151px) {
+  .testimonial .boxes .slider-nav {
+    display: flex;
+  }
 }
 
 .testimonial .boxes .box.blue .quote-icon {

@@ -18,23 +18,38 @@ menuCloseIcon.addEventListener("click", () => {
 });
 
 // Slider
-const wrapper = document.querySelector(".wrapper");
-const slides = document.querySelectorAll(".wrapper .slide");
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
+const pricingWrapper = document.querySelector(".pricing .wrapper");
+const pricingSlides = document.querySelectorAll(".pricing .wrapper .slide");
+const testimonialSlides = document.querySelectorAll(
+  ".testimonial .wrapper .slide"
+);
+const pricingPrev = document.querySelector(".pricing .prev");
+const pricingNext = document.querySelector(".pricing .next");
+const testimonialPrev = document.querySelector(".testimonial .prev");
+const testimonialNext = document.querySelector(".testimonial .next");
+
 let slideIndex = 0;
 
-slides[slideIndex].style.display = "block";
+pricingSlides[slideIndex].style.display = "block";
+testimonialSlides[slideIndex].style.display = "block";
 
-prev.onclick = function () {
-  changeSlide(slideIndex - 1);
+pricingPrev.onclick = function () {
+  changeSlide(slideIndex - 1, pricingSlides);
 };
 
-next.onclick = function () {
-  changeSlide(slideIndex + 1);
+pricingNext.onclick = function () {
+  changeSlide(slideIndex + 1, pricingSlides);
 };
 
-function checkIfSlideIsEnd(n) {
+testimonialPrev.onclick = function () {
+  changeSlide(slideIndex - 1, testimonialSlides);
+};
+
+testimonialNext.onclick = function () {
+  changeSlide(slideIndex + 1, testimonialSlides);
+};
+
+function checkIfSlideIsEnd(n, slides) {
   if (n < 0) {
     slideIndex = slides.length - 1;
     return slideIndex;
@@ -47,25 +62,8 @@ function checkIfSlideIsEnd(n) {
   }
 }
 
-function changeSlide(n) {
+function changeSlide(n, slides) {
   slides.forEach((slide) => (slide.style.display = "none"));
 
-  slides[checkIfSlideIsEnd(n)].style.display = "block";
+  slides[checkIfSlideIsEnd(n, slides)].style.display = "block";
 }
-
-// Animated Slide
-const slideWrapper = document.querySelector(".slide-wrapper");
-const animSlides = document.querySelectorAll(".slide");
-
-animSlides.forEach((slide) => {
-  slide.addEventListener("mouseover", function () {
-    animSlides.forEach((slide) => {
-      slide.style.animationPlayState = "paused";
-    });
-  });
-  slide.addEventListener("mouseout", function () {
-    animSlides.forEach((slide) => {
-      slide.style.animationPlayState = "running";
-    });
-  });
-});
