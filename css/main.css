@@ -386,6 +386,26 @@ header .menu .menu-icon {
   padding: 40px 44px;
   border-radius: 10px;
   min-width: 289px;
+  position: relative;
+}
+
+@media (max-width: 1151px) {
+  .pricing .boxes .box {
+    left: 114vw;
+    animation: slider 15s linear infinite;
+  }
+
+  .pricing .boxes .box:first-of-type {
+    animation-delay: 1s;
+  }
+
+  .pricing .boxes .box:nth-of-type(2) {
+    animation-delay: 2s;
+  }
+
+  .pricing .boxes .box:last-of-type {
+    animation-delay: 3s;
+  }
 }
 
 @media (min-width: 768px) {
@@ -571,7 +591,28 @@ header .menu .menu-icon {
   border-radius: 10px;
   min-width: 289px;
   box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+  position: relative;
+  left: 100%;
 }
+
+.testimonial .boxes .box:first-of-type {
+  animation: slider 15s linear infinite;
+  animation-delay: 1s;
+}
+
+.testimonial .boxes .box:nth-of-type(2) {
+  animation: slider 15s linear infinite;
+  animation-delay: 2s;
+}
+
+.testimonial .boxes .box:last-of-type {
+  animation: slider 15s linear infinite;
+  animation-delay: 3s;
+}
+
+/* .testimonial .boxes:hover .box {
+  animation-play-state: running;
+} */
 
 .testimonial .boxes .box.blue {
   background-color: var(--color-blueberry);
@@ -761,3 +802,17 @@ footer .social i {
   }
 }
 /* End Footer */
+
+/* Start Animations */
+@keyframes slider {
+  0% {
+    visibility: visible;
+    left: 115vw;
+  }
+
+  100% {
+    visibility: hidden;
+    left: -115vw;
+  }
+}
+/* End Animations */
