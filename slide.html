@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .swiper {
+        width: 600px;
+        height: 300px;
+        border: 1px solid #696969;
+      }
+
+      .wrapper {
+        width: 100%;
+        height: 100%;
+        /* display: flex; */
+        position: relative;
+        border: 1px solid red;
+      }
+
+      .slide {
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        background-color: #223;
+        color: #fff;
+        display: none;
+      }
+
+      .one {
+        display: block;
+      }
+
+      .prev,
+      .next {
+        margin: 20px;
+        width: fit-content;
+        padding: 15px 20px;
+        background-color: #212122;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="wrapper">
+        <!-- Slides -->
+        <div class="slide one">Slide 1</div>
+        <div class="slide two">Slide 2</div>
+        <div class="slide three">Slide 3</div>
+        <div class="slide three">Slide 4</div>
+        <div class="slide three">Slide 5</div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="prev">&lt;</div>
+      <div class="next">&gt;</div>
+
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script></script>
+  </body>
+</html>

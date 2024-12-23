@@ -141,6 +141,29 @@ input:focus {
     font-size: 72px;
   }
 }
+
+.wrapper {
+  position: relative;
+}
+
+.slider-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slider-nav div {
+  background-color: #292b2d3d;
+  color: #fff;
+  width: 33px;
+  height: 50px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* End Components */
 
 /* Start Header */
@@ -180,12 +203,42 @@ header .menu {
 
 header .menu ul {
   display: flex;
+  align-items: center;
   margin-right: 40px;
 }
 
 @media (max-width: 1439px) {
-  header .menu ul {
-    display: none;
+  header .menu ul.active {
+    display: block;
+    background-color: var(--color-white);
+    width: 80%;
+    height: 100vh;
+    position: absolute;
+    left: -100%;
+    top: 0;
+    padding: 40px 0 0 40px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    transition: 0.3s;
+  }
+
+  header .menu ul.active-on {
+    left: 0;
+  }
+}
+
+header .menu ul .close-icon {
+  display: none;
+}
+
+@media (max-width: 1439px) {
+  header .menu ul.active .close-icon {
+    display: block;
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: var(--color-flavescent);
+    font-size: 29px;
   }
 }
 
@@ -194,9 +247,27 @@ header .menu ul li {
   color: var(--color-white);
 }
 
+@media (max-width: 1439px) {
+  header .menu ul li {
+    color: var(--color-ateneo-blue);
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1439px) {
+  header .menu ul li {
+    display: none;
+  }
+
+  header .menu ul.active li {
+    display: block;
+  }
+}
+
 header .menu a {
   font-size: 18px;
   font-weight: 500;
+  margin-right: 15px;
 }
 
 header .menu a:first-of-type {
@@ -213,6 +284,13 @@ header .menu a:last-of-type {
 @media (max-width: 1151px) {
   header .menu a {
     display: none;
+  }
+}
+
+@media (max-width: 1439px) {
+  header .menu ul.active a {
+    display: block;
+    margin-top: 30px;
   }
 }
 
@@ -378,7 +456,6 @@ header .menu .menu-icon {
   gap: 32px;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .pricing .boxes .box {
@@ -387,24 +464,13 @@ header .menu .menu-icon {
   border-radius: 10px;
   min-width: 289px;
   position: relative;
+  display: block;
 }
 
 @media (max-width: 1151px) {
   .pricing .boxes .box {
-    left: 114vw;
-    animation: slider 15s linear infinite;
-  }
-
-  .pricing .boxes .box:first-of-type {
-    animation-delay: 1s;
-  }
-
-  .pricing .boxes .box:nth-of-type(2) {
-    animation-delay: 2s;
-  }
-
-  .pricing .boxes .box:last-of-type {
-    animation-delay: 3s;
+    grid-column: span 12;
+    display: none;
   }
 }
 
@@ -417,6 +483,16 @@ header .menu .menu-icon {
 @media (min-width: 1152px) {
   .pricing .boxes .box {
     min-width: 340px;
+  }
+}
+
+.pricing .boxes .slider-nav {
+  display: none;
+}
+
+@media (max-width: 1151px) {
+  .pricing .boxes .slider-nav {
+    display: flex;
   }
 }
 
